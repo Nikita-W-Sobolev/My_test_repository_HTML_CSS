@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML Справочник с Примерами</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            text-align: center;
+            color: #2a4d9b;
+        }
+        .tag-block {
+            background: #fff;
+            border-left: 5px solid #2a4d9b;
+            padding: 10px 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+        .tag-name {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #2a4d9b;
+        }
+        .tag-desc, .tag-attrs {
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: Consolas, monospace;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>HTML Справочник</h1>
+
+    <p><b>Содержание:</b></p>
+    <ul>
+        <li><a href="#html">&lt;html&gt;</a></li>
+        <li><a href="#head">&lt;head&gt;</a></li>
+        <li><a href="#body">&lt;body&gt;</a></li>
+        <li><a href="#title">&lt;title&gt;</a></li>
+        <li><a href="#h">&lt;h&gt;</a></li>
+        <li><a href="#p">&lt;p&gt;</a></li>
+        <li><a href="#a">&lt;a&gt;</a></li>
+    </ul>
+
+    <p>Глобальные атрибуты (работают для абсолютно всех тегов):</p>
+        <ul type="circle">
+            <li><b>id</b> - Уникальный идентификатор элемента. Пример: id="header"</li>
+            <li><b>class</b> - Классы для CSS/JavaScript (можно несколько через пробел). Пример: class="text red"</li>
+            <li><b>style</b> - Встроенные CSS-стили (высший приоритет). Пример: style="color: blue;"</li>
+            <li><b>title</b> - Всплывающая подсказка при наведении. Пример: title="Подсказка"</li>
+            <li><b>lang</b> - Язык содержимого элемента. Пример: lang="ru"</li>
+            <li><b>data-*</b> - Пользовательские атрибуты для JS (например, data-id, data-action). Пример: data-modal="login"</li>
+            <li><b>hidden</b> - Скрывает элемент (аналог CSS display: none). (например, data-id, data-action). Пример: hidden</li>
+            <li><b>tabindex</b> - Определяет порядок фокусировки при навигации клавишей Tab. Пример: tabindex="0"</li>
+            <li><b>contenteditable</b> - Позволяет редактировать текст прямо на странице. Пример: contenteditable="true"</li>
+            <li><b>draggable</b> - Разрешает перетаскивание элемента (для Drag&Drop API). Пример: draggable="true"</li>
+            <li><b>accesskey</b> - Горячая клавиша для активации элемента (например, Alt + S). Пример: accesskey="S"</li>
+        </ul>
+    <hr>
+    <p>Простые теги, которые не вошли в каталог:</p>
+        <ul type="circle">
+            <li><b>&lt;b&gt;</b> - <b>Жирный текст</b> (визуальное выделение)</li>
+            <li><strong>&lt;strong&gt;</strong> - <strong>Важный текст</strong> (семантическое выделение)</li>
+            <li><i>&lt;i&gt;</i> - <i>Курсив</i> (визуальное выделение)</li>
+            <li><em>&lt;em&gt;</em> - <em>Акцент</em> (семантическое выделение)</li>
+            <li><u>&lt;u&gt;</u> - <u>Подчёркивание</u></li>
+            <li><s>&lt;s&gt;</s> - <s>Перечёркивание</s></li>
+            <li><mark>&lt;mark&gt;</mark> - <mark>Выделение маркером</mark></li>
+            <li><code>&lt;code&gt;</code> - <code>Моноширинный шрифт</code></li>
+            <li><kbd>&lt;kbd&gt;</kbd> - <kbd>Клавиши</kbd></li>
+            <li><sup>&lt;sup&gt;</sup> - Верхний<sup>регистр</sup></li>
+            <li><sub>&lt;sub&gt;</sub> - Нижний<sub>регистр</sub></li>
+            <li><time>&lt;time&gt; - дата/время <time datetime="2024-05-15">15 мая</time></li>
+            <li>&lt;br&gt; - Перенос строки</li>
+            <li>&lt;hr&gt; - Горизонтальная линия</li>
+        </ul>
+    <hr>
+    <p>Основные экранированные символы HTML с расшифровкой:</p>
+        <ul type="circle">
+            <li><i>&amp;lt;</i> — знак "меньше" (&lt;)</li>
+            <li><i>&amp;gt;</i> — знак "больше" (&gt;)</li>
+            <li><i>&amp;amp;</i> — амперсанд (&)</li>
+            <li><i>&amp;apos;</i> — одинарная кавычка (')</li>
+            <li><i>&amp;nbsp;</i> — неразрывный пробел ( )</li>
+            <li><i>&amp;copy;</i> — знак копирайта (©)</li>
+            <li><i>&amp;reg;</i> — знак зарегистрированной торговой марки (®)</li>
+            <li><i>&amp;trade;</i> — знак торговой марки (™)</li>
+            <li><i>&amp;mdash;</i> — длинное тире (—)</li>
+            <li><i>&amp;ndash;</i> — короткое тире (–)</li>
+            <li><i>&amp;euro;</i> — символ евро (€)</li>
+            <li><i>&amp;pound;</i> — символ фунта (£)</li>
+            <li><i>&amp;yen;</i> — символ иены (¥)</li>
+            <li><i>&amp;cent;</i> — символ цента (¢)</li>
+        </ul>
+    Примеры использования:
+        <ul type="circle">
+            <li>Чтобы показать тег: <i>&amp;lt;div&amp;gt;</i> → &lt;div&gt;</li>
+            <li>Для кавычек: <i>&amp;quot;Привет&amp;quot;</i> → &quot;Привет&quot;</li>
+            <li>Для неразрывного пробела: <i>10&amp;nbsp;кг</i> → 10&nbsp;кг</li>
+        </ul>
+    <hr>
+
+    <!--<html>-->
+    <div class="tag-block" id="html">
+        <div class="tag-name">&lt;html&gt;</div>
+        <div class="tag-desc">Описание: <u>Корневой тег документа</u></div>
+        <div class="tag-attrs">Атрибуты:</div>
+            <ul>
+                <li>lang (обязательный):</li>
+                    <ul>
+                        <li>Указывает язык документа (например, ru для русского).</li>
+                        <li>Влияет на скринридеры и SEO.</li>
+                    </ul>
+                <li>dir (опциональный):</li>
+                    <ul>
+                        <li>Задаёт направление текста: ltr (слева направо) или rtl (справа налево).</li>
+                    </ul>
+                <li>xmlns (редко используется):</li>
+                    <ul>
+                        <li>Нужен для XHTML-документов: xmlns="http://www.w3.org/1999/xhtml".</li>
+                    </ul>
+                </ul>
+            </ul>
+    <pre><code>
+    &lt;!DOCTYPE html&gt;
+        &lt;html lang="ru"&gt;
+        ...
+        &lt;/html&gt;</code></pre>
+    </div>
+
+    <!--<head>-->
+    <div class="tag-block" id="head">
+        <div class="tag-name">&lt;head&gt;</div>
+        <div class="tag-desc">Описание: <u>Контейнер для метаданных (служебной информации)</u></div>
+        <div class="tag-attrs">Что пишется внутри &lt;head&gt;:</div>
+            <ol>
+                <li>&lt;title&gt; — заголовок страницы (отображается во вкладке браузера и SEO).</li>
+                <li>&lt;meta charset="UTF-8&gt; — кодировка символов (обязательно для кириллицы).</li>
+                <li>&lt;meta name="viewport"&g  t; — адаптивность под мобильные устройства.</li>
+                <li>&lt;meta&gt; — теги для SEO (описание, ключевые слова).</li>
+                <li>&lt;link&gt; — подключение CSS-файлов, иконок (favicon).</li>
+                <li>&lt;style&gt; — встроенные CSS-стили (если нет отдельного файла).</li>
+                <li>&lt;script&gt; — скрипты (обычно подключают перед &lt;/body&gt;, но некоторые — в &lt;head&gt;).</li>
+                <li>&lt;base&gt; — базовый URL для всех относительных ссылок (редко используется).</li>
+            </ol>
+    <pre><code>
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;title&gt;Пример страницы&lt;/title&gt;
+        &lt;style&gt;
+            body {
+            font-family: Arial;
+            margin: 20px;
+            }
+        &lt;/style&gt;
+    &lt;/head&gt;</code></pre>
+    </div>
+
+    <!--<body>-->
+    <div class="tag-block" id="body">
+        <div class="tag-name">&lt;body&gt;</div>
+        <div class="tag-desc">Описание: <u>Содержит всё видимое содержимое страницы</u></div>
+        <div class="tag-attrs">Атрибуты:</div>
+            <ul>
+                <li>bgcolor — цвет фона (устарел, используйте CSS).</li>
+                <li>text — цвет текста (устарел).</li>
+                <li>onload, onscroll — обработчики JavaScript-событий.</li>
+            </ul>
+    <pre><code>
+    &lt;body&gt;
+        &lt;h1&gt;Привет, мир!&lt;/h1&gt;
+    &lt;/body&gt;</code></pre>
+    </div>
+
+    <!--<title>-->
+    <div class="tag-block" id="title">
+        <div class="tag-name">&lt;title&gt;</div>
+        <div class="tag-desc">Описание: Заголовок вкладки браузера</div>
+        <div class="tag-attrs">Назначение:</div>
+            <ul>
+                <li>Определяет заголовок веб-страницы, который отображается:</li>
+                    <ul>
+                        <li>Во вкладке браузера</li>
+                        <li>В результатах поиска (SEO)</li>
+                        <li>При сохранении в закладки</li>
+                    </ul>
+                <li>Должен находиться внутри &lt;head&gt;</li>
+            </ul>
+        <pre><code>&lt;title&gt;Учить HTML | Учить CSS | Учить JavaScript&lt;/title&gt;</code></pre>
+    </div>
+
+    <!--h1-h6-->
+    <div class="tag-block" id="h">
+        <div class="tag-name">&lt;h1&gt;–&lt;h6&gt;</div>
+        <div class="tag-desc">Описание: Заголовки от самого важного до наименее</div>
+        <div class="tag-attrs">Атрибуты:</div>
+            <ul>
+                <li>Глобальные атрибуты.</li>
+                <li>Устаревшие/нерекомендуемые атрибуты:</li>
+                    <ul>
+                        <li>align — выравнивание текста 'right','left','center' (лучше использовать CSS text-align):</li>
+                    </ul>
+            </ul>
+    <pre><code>
+    &lt;h1
+        id="main-header"
+        class="title large-text"
+        style="color: #333;"
+        title="Главный заголовок"
+        lang="ru"
+        data-section="intro"    
+    &gt;
+        Мой заголовок!
+    &lt;/h1&gt;
+    </code></pre>
+    </div>
+
+    <!--p-->
+    <div class="tag-block" id="p">
+        <div class="tag-name">&lt;p&gt;</div>
+        <div class="tag-desc">Описание: параграф/абзац</div>
+            <ul>
+                <li>Создает текстовый абзац (блочный элемент)</li>
+                <li>Автоматически добавляет отступы сверху и снизу (по умолчанию margin: 1em 0)</li>
+            </ul>
+        <div class="tag-attrs">Атрибуты:</div>
+            <ul>
+                <li>Глобальные атрибуты</li>
+                <li>Устаревшие (не используйте, вместо них CSS):</li>
+                    <ul>
+                        <li>align="left|right|center|justify" → используйте text-align в CSS</li>
+                    </ul>
+            </ul>
+    <pre><code>
+    &lt;p&gt;Это абзац текста.&lt;/p&gt;
+    </code></pre>
+    </div>
+
+    <!--a-->
+    <div class="tag-block" id="a">
+        <div class="tag-name">&lt;a&gt;</div>
+        <div class="tag-desc">Описание: Гиперссылка</div>
+        <div class="tag-attrs">Атрибуты:</div>
+            <ul>
+                <li>href (обязательный) - URL или путь к файлу. Примеры:</li>
+                    <ul>
+                        <li>&lt;a href="https://example.com"&gt;Внешняя ссылка&lt;/a&gt;</li>
+                        <li>&lt;a href="/about.html"&gt;Локальная страница&lt;/a&gt;</li>
+                        <li>&lt;a href="docs/file.pdf"&gt;PDF-файл&lt;/a&gt;</li>
+                        <li>&lt;a href="#a"&gt;ссылка на часть этого документа&lt;/a&gt;</li>
+                    </ul>
+                <li>target="_blank" - открыть в новой вкладке</li>
+                <li>rel="noopener noreferrer" - защита от фишинга при target="_blank"</li>
+                <li>download - Принудительное скачивание файла</li>
+            </ul>
+    <pre><code>
+    &lt;a href="https://example.com" target="_blank"&gt;Ссылка&lt;/a&gt;
+    </code></pre>
+    </div>
+
+    <div class="tag-block">
+        <div class="tag-name">&lt;img&gt;</div>
+        <div class="tag-desc">Описание: Вставка изображения</div>
+        <div class="tag-attrs">Атрибуты: src, alt, width, height</div>
+        <pre><code>&lt;img src="image.jpg" alt="Описание"&gt;</code></pre>
+    </div>
+
+    <div class="tag-block">
+        <div class="tag-name">&lt;ul&gt; / &lt;ol&gt;</div>
+        <div class="tag-desc">Описание: Списки (ul — маркированный, ol — нумерованный)</div>
+        <div class="tag-attrs">Атрибуты: type (ol), class, id</div>
+        <pre><code>&lt;ul&gt;
+  &lt;li&gt;Пункт&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+  &lt;li&gt;Пункт&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+    </div>
+
+    <div class="tag-block">
+        <div class="tag-name">&lt;li&gt;</div>
+        <div class="tag-desc">Описание: Элемент списка</div>
+        <div class="tag-attrs">Атрибуты: —</div>
+        <pre><code>&lt;li&gt;Элемент списка&lt;/li&gt;</code></pre>
+    </div>
+
+    <div class="tag-block">
+        <div class="tag-name">&lt;div&gt;</div>
+        <div class="tag-desc">Описание: Блочный контейнер</div>
+        <div class="tag-attrs">Атрибуты: class, id, style</div>
+        <pre><code>&lt;div class="container"&gt;Содержимое&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tag-block">
+        <div class="tag-name">&lt;span&gt;</div>
+        <div class="tag-desc">Описание: Встроенный контейнер</div>
+        <div class="tag-attrs">Атрибуты: class, id, style</div>
+        <pre><code>&lt;span style="color: red;"&gt;Красный текст&lt;/span&gt;</code></pre>
+    </div>
+    <div class="tag-block">
+        <div class="tag-name">&lt;table&gt;</div>
+        <div class="tag-desc">Описание: Таблица</div>
+        <div class="tag-attrs">Атрибуты: border, cellspacing, cellpadding</div>
+        <pre><code>&lt;table border="1"&gt;
+  &lt;tr&gt;&lt;th&gt;Заголовок&lt;/th&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;Данные&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+    </div>
+
+    <div class="tag-block">
+        <div class="tag-name">&lt;form&gt;</div>
+        <div class="tag-desc">Описание: Форма для ввода данных</div>
+        <div class="tag-attrs">Атрибуты: action, method, enctype</div>
+        <pre><code>&lt;form action="/submit" method="post"&gt;
+  &lt;input type="text" name="имя"&gt;
+&lt;/form&gt;</code></pre>
+    </div>
+
+    <div class="tag-block">
+        <div class="tag-name">&lt;input&gt;</div>
+        <div class="tag-desc">Описание: Поле ввода</div>
+        <div class="tag-attrs">Атрибуты: type, name, value, placeholder, required</div>
+        <pre><code>&lt;input type="text" placeholder="Введите имя"&gt;</code></pre>
+    </div>
+
+    <div class="tag-block">
+        <div class="tag-name">&lt;label&gt;</div>
+        <div class="tag-desc">Описание: Подпись к элементу формы</div>
+        <div class="tag-attrs">Атрибуты: for</div>
+        <pre><code>&lt;label for="name"&gt;Имя:&lt;/label&gt;</code></pre>
+    </div>
+
+    <div class="tag-block">
+        <div class="tag-name">&lt;textarea&gt;</div>
+        <div class="tag-desc">Описание: Многострочное поле ввода</div>
+        <div class="tag-attrs">Атрибуты: rows, cols, name, placeholder</div>
+        <pre><code>&lt;textarea rows="4" cols="50"&gt;&lt;/textarea&gt;</code></pre>
+    </div>
+
+    <div class="tag-block">
+        <div class="tag-name">&lt;select&gt; / &lt;option&gt;</div>
+        <div class="tag-desc">Описание: Выпадающий список и его пункты</div>
+        <div class="tag-attrs">Атрибуты: name, value, selected</div>
+        <pre><code>&lt;select&gt;
+  &lt;option value="1"&gt;Один&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+    </div>
+
+    <div class="tag-block">
+        <div class="tag-name">&lt;button&gt;</div>
+        <div class="tag-desc">Описание: Кнопка</div>
+        <div class="tag-attrs">Атрибуты: type, disabled</div>
+        <pre><code>&lt;button type="submit"&gt;Отправить&lt;/button&gt;</code></pre>
+    </div>
+    <div class="tag-block">
+        <div class="tag-name">&lt;script&gt;</div>
+        <div class="tag-desc">Описание: Встраивание JavaScript-кода</div>
+        <div class="tag-attrs">Атрибуты: src, type</div>
+        <pre><code>&lt;script&gt;
+  alert('Привет');
+&lt;/script&gt;</code></pre>
+    </div>
+
+    <div class="tag-block">
+        <div class="tag-name">&lt;style&gt;</div>
+        <div class="tag-desc">Описание: Встроенные CSS стили</div>
+        <div class="tag-attrs">Атрибуты: type (редко используется)</div>
+        <pre><code>&lt;style&gt;
+  body { background: #eee; }
+&lt;/style&gt;</code></pre>
+    </div>
+
+    <div class="tag-block">
+        <div class="tag-name">&lt;link&gt;</div>
+        <div class="tag-desc">Описание: Подключение внешних ресурсов (например, CSS)</div>
+        <div class="tag-attrs">Атрибуты: rel, href, type</div>
+        <pre><code>&lt;link rel="stylesheet" href="style.css"&gt;</code></pre>
+    </div>
+
+    <div class="tag-block">
+        <div class="tag-name">&lt;meta&gt;</div>
+        <div class="tag-desc">Описание: Метаинформация (кодировка, SEO и др.)</div>
+        <div class="tag-attrs">Атрибуты: charset, name, content</div>
+        <pre><code>&lt;meta charset="UTF-8"&gt;</code></pre>
+    </div>
+
+    <div class="tag-block">
+        <div class="tag-name">&lt;iframe&gt;</div>
+        <div class="tag-desc">Описание: Встраивание других веб-страниц</div>
+        <div class="tag-attrs">Атрибуты: src, width, height, frameborder</div>
+        <pre><code>&lt;iframe src="page.html" width="300" height="200"&gt;&lt;/iframe&gt;</code></pre>
+    </div>
+
+    <div class="tag-block">
+        <div class="tag-name">&lt;video&gt;</div>
+        <div class="tag-desc">Описание: Воспроизведение видео</div>
+        <div class="tag-attrs">Атрибуты: src, controls, autoplay, loop</div>
+        <pre><code>&lt;video src="video.mp4" controls&gt;&lt;/video&gt;</code></pre>
+    </div>
+
+    <div class="tag-block">
+        <div class="tag-name">&lt;source&gt;</div>
+        <div class="tag-desc">Описание: Источник для мультимедиа (внутри video/audio)</div>
+        <div class="tag-attrs">Атрибуты: src, type</div>
+        <pre><code>&lt;source src="media.mp4" type="video/mp4"&gt;</code></pre>
+    </div>
+
+    <div class="tag-block">
+        <div class="tag-name">&lt;code&gt; / &lt;pre&gt;</div>
+        <div class="tag-desc">Описание: Отображение кода и форматированного текста</div>
+        <div class="tag-attrs">Атрибуты: —</div>
+        <pre><code>&lt;pre&gt;&lt;code&gt;console.log('Hello');&lt;/code&gt;&lt;/pre&gt;</code></pre>
+    </div>
+
+    <div class="tag-block">
+        <div class="tag-name">&lt;mark&gt;</div>
+        <div class="tag-desc">Описание: Подсвеченный текст</div>
+        <div class="tag-attrs">Атрибуты: —</div>
+        <pre><code>&lt;mark&gt;Выделено&lt;/mark&gt;</code></pre>
+    </div>
+
+    <div class="tag-block">
+        <div class="tag-name">&lt;details&gt; / &lt;summary&gt;</div>
+        <div class="tag-desc">Описание: Раскрывающийся блок</div>
+        <div class="tag-attrs">Атрибуты: open (для details)</div>
+        <pre><code>&lt;details&gt;
+  &lt;summary&gt;Подробнее&lt;/summary&gt;
+  &lt;p&gt;Текст внутри&lt;/p&gt;
+&lt;/details&gt;</code></pre>
+    </div>
+
+</body>
+</html>
