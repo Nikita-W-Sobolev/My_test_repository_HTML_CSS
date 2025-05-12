@@ -53,9 +53,22 @@
         <li><a href="#head">&lt;head&gt;</a></li>
         <li><a href="#body">&lt;body&gt;</a></li>
         <li><a href="#title">&lt;title&gt;</a></li>
-        <li><a href="#h">&lt;h&gt;</a></li>
-        <li><a href="#p">&lt;p&gt;</a></li>
-        <li><a href="#a">&lt;a&gt;</a></li>
+        <li><a href="#h">&lt;h&gt;</a> - заголовок</li>
+        <li><a href="#p">&lt;p&gt;</a> - параграф/абзац</li>
+        <li><a href="#a">&lt;a&gt;</a> - гиперссылка</li>
+        <li><a href="#img">&lt;img&gt;</a> - вставка изображения</li>
+        <li><a href="#ul">&lt;ul&gt;</a> - маркированный список</li>
+        <li><a href="#ol">&lt;ol&gt;</a> - нумерованный список</li>
+        <li><a href="#dl">&lt;dl&gt;</a> - список определений</li>
+        <li><a href="#div">&lt;div&gt;</a> - универсальный контейнер</li>
+        <li><a href="#span">&lt;span&gt;</a> - строчный контейнер</li>
+        <li><a href="#table">&lt;table&gt;</a> - создание таблиц</li>
+        <li><a href="#iframe">&lt;iframe&gt;</a> - встраивание внешнего контента</li>
+        <li><a href="#form">&lt;form&gt;</a> - форма для ввода данных</li>
+        <li><a href="#input">&lt;input&gt;</a> - создаёт поля для ввода данных</li>
+        <li><a href="#label">&lt;label&gt;</a> - подпись для элемента формы.</li>
+        <li><a href="#select">&lt;select&gt;</a> - выпадающий список</li>
+        <li><a href="#textarea">&lt;textarea&gt;</a> - многострочное поле ввода</li>
     </ul>
 
     <p>Глобальные атрибуты (работают для абсолютно всех тегов):</p>
@@ -88,7 +101,7 @@
             <li><sub>&lt;sub&gt;</sub> - Нижний<sub>регистр</sub></li>
             <li><time>&lt;time&gt; - дата/время <time datetime="2024-05-15">15 мая</time></li>
             <li>&lt;br&gt; - Перенос строки</li>
-            <li>&lt;hr&gt; - Горизонтальная линия</li>
+            <li>&lt;hr&gt; - Горизонтальная линия (align="left" width="50%" size=1)</li>
         </ul>
     <hr>
     <p>Основные экранированные символы HTML с расшифровкой:</p>
@@ -274,92 +287,388 @@
     </code></pre>
     </div>
 
-    <div class="tag-block">
+    <!--img-->
+    <div class="tag-block" id="img">
         <div class="tag-name">&lt;img&gt;</div>
         <div class="tag-desc">Описание: Вставка изображения</div>
-        <div class="tag-attrs">Атрибуты: src, alt, width, height</div>
-        <pre><code>&lt;img src="image.jpg" alt="Описание"&gt;</code></pre>
+        <div class="tag-attrs">Атрибуты:</div>
+            <ul>
+                <li>Обязательные атрибуты:</li>
+                    <ul>
+                        <li>src - путь к изображению. Пример: &lt;src="cat.jpg"&gt;;&lt;img src="https://example.com/cat.jpg"&gt;</li>
+                        <li>alt - текстовое описание для доступности и SEO. Пример: &lt;img src="cat.jpg" alt="Рыжий кот спит на подоконнике"&gt;</li>
+                    </ul>
+                <li>Дополнительные атрибуты:</li>
+                    <ul>
+                        <li>width/height - Размеры в пикселях (лучше задавать через CSS). Пример: width="300"</li>
+                        <li>loading - Ленивая загрузка (lazy/eager). Пример: loading="lazy"</li>
+                        <li>title - Всплывающая подсказка. Пример: title="Кот Васька"</li>
+                        <li>srcset - Адаптивные изображения. Пример: srcset="cat-320w.jpg 320w, cat-640w.jpg 640w"</li>
+                        <li>sizes - Условия для srcset. Пример: sizes="(max-width: 600px) 100vw, 50vw"</li>
+                    </ul>
+                <li>Форматы: JPEG, PNG, GIF, WebP, AVIF.</li>
+            </ul>
+    <pre><code>&lt;
+    img src="image.jpg" alt="Описание"&gt;
+    </code></pre>
     </div>
 
-    <div class="tag-block">
-        <div class="tag-name">&lt;ul&gt; / &lt;ol&gt;</div>
-        <div class="tag-desc">Описание: Списки (ul — маркированный, ol — нумерованный)</div>
-        <div class="tag-attrs">Атрибуты: type (ol), class, id</div>
-        <pre><code>&lt;ul&gt;
-  &lt;li&gt;Пункт&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol&gt;
-  &lt;li&gt;Пункт&lt;/li&gt;
-&lt;/ol&gt;</code></pre>
+    <!--ul-->
+    <div class="tag-block" id="ul">
+        <div class="tag-name">&lt;ul&gt;</div>
+        <div class="tag-desc">Описание: Маркированный список</div>
+        <div class="tag-attrs">Атрибуты:</div>
+            <ul>
+                <li>type (устарел) — вид маркера (disc, circle, square). Современная альтернатива — CSS list-style-type</li>
+            </ul>
+    <pre><code>
+    &lt;ul&gt;
+        &lt;li&gt;Пункт&lt;/li&gt;
+    &lt;/ul&gt;
+    </code></pre>
     </div>
 
-    <div class="tag-block">
-        <div class="tag-name">&lt;li&gt;</div>
-        <div class="tag-desc">Описание: Элемент списка</div>
-        <div class="tag-attrs">Атрибуты: —</div>
-        <pre><code>&lt;li&gt;Элемент списка&lt;/li&gt;</code></pre>
+    <!--ol-->
+    <div class="tag-block" id="ol">
+        <div class="tag-name">&lt;ol&gt;</div>
+        <div class="tag-desc">Описание: Нумерованный список</div>
+        <div class="tag-attrs">Атрибуты:</div>
+            <ul>
+                <li>type — тип нумерации (1, A, a, I, i)</li>
+                <li>start — число, с которого начинается отсчёт</li>
+                <li>reversed — обратная нумерация</li>
+            </ul>
+    <pre><code>
+    &lt;ol type="A" start="3"&gt;
+        &lt;li&gt;Пункт&lt;/li&gt;
+    &lt;/ol&gt;
+    </code></pre>
     </div>
 
-    <div class="tag-block">
+    <!--dl-->
+    <div class="tag-block" id="dl">
+        <div class="tag-name">&lt;dl&gt;</div>
+        <div class="tag-desc">Список определений. Используется для:</div>
+            <ul>
+                <li>Терминологических словарей</li>
+                <li>FAQ (вопрос-ответ)</li>
+                <li>Пар "ключ-значение"</li>
+                <li>Описания метаданных</li>
+            </ul>
+        <div class="tag-attrs">Структура:</div>
+            <ul>
+                <li>&lt;dl&gt; - Контейнер для списка</li>
+                <li>&lt;dt&gt; - Термин (Definition Term)</li>
+                <li>&lt;dd&gt; - Определение (Definition Description)</li>
+            </ul>
+    <pre><code>
+    &lt;dl&gt;
+        &lt;dt&gt;HTML&lt;/dt&gt;
+        &lt;dd&gt;Язык гипертекстовой разметки для создания веб-страниц&lt;/dd&gt;
+        &lt;dt&gt;CSS&lt;/dt&gt;
+        &lt;dd&gt;Каскадные таблицы стилей для оформления HTML-документов&lt;/dd&gt;
+    &lt;dl&gt;
+    </code></pre>
+    </div>
+
+    <!--div-->
+    <div class="tag-block" id="div">
         <div class="tag-name">&lt;div&gt;</div>
-        <div class="tag-desc">Описание: Блочный контейнер</div>
-        <div class="tag-attrs">Атрибуты: class, id, style</div>
-        <pre><code>&lt;div class="container"&gt;Содержимое&lt;/div&gt;</code></pre>
+        <div class="tag-desc">Описание: Блочный элемент-контейнер для группировки других элементов и применения стилей.</div>
+        <div class="tag-attrs">Когда используется:</div>
+            <ul>
+                <li>Группировка элементов для стилизации</li>
+                <li>Создание сеток (вместе с CSS Grid/Flexbox)</li>
+                <li>Как контейнер для JavaScript-манипуляций</li>
+            </ul>
+    <pre><code>
+        &lt;div class="container" title="Основной блок" style="border: 1px solid #ddd;"  data-page="home"&gt;Содержимое&lt;/div&gt;
+    </code></pre>
     </div>
 
-    <div class="tag-block">
+    <!--span-->
+    <div class="tag-block" id="span">
         <div class="tag-name">&lt;span&gt;</div>
-        <div class="tag-desc">Описание: Встроенный контейнер</div>
-        <div class="tag-attrs">Атрибуты: class, id, style</div>
+        <div class="tag-desc">Описание: Строчный элемент для группировки и стилизации текста или отдельных частей содержимого.</div>
+        <div class="tag-attrs">Атрибуты: глобальные</div>
         <pre><code>&lt;span style="color: red;"&gt;Красный текст&lt;/span&gt;</code></pre>
     </div>
-    <div class="tag-block">
+
+    <!--table-->
+    <div class="tag-block" id="table">
         <div class="tag-name">&lt;table&gt;</div>
-        <div class="tag-desc">Описание: Таблица</div>
-        <div class="tag-attrs">Атрибуты: border, cellspacing, cellpadding</div>
-        <pre><code>&lt;table border="1"&gt;
-  &lt;tr&gt;&lt;th&gt;Заголовок&lt;/th&gt;&lt;/tr&gt;
-  &lt;tr&gt;&lt;td&gt;Данные&lt;/td&gt;&lt;/tr&gt;
-&lt;/table&gt;</code></pre>
+        <div class="tag-desc">Описание: Создание таблиц</div>
+            <table border="1" width="50%" align="center" bgcolor="#f0f0f0">
+                <caption>Теги, применяемые внутри таблицы:</caption>
+                <tr><th>Тег</th><th>Описание</th><th>Атрибуты</th></tr>
+                <tr align="center"><td>&lt;table&gt;</td><td>Контейнер таблицы</td><td>border, width, align</td></tr>
+                <tr align="center"><td>&lt;tr&gt;</td><td>Строка таблицы</td><td>bgcolor, style</td></tr>
+                <tr align="center"><td>&lt;th&gt;</td><td>Ячейка-заголовок</td><td>colspan, rowspan</td></tr>
+                <tr align="center"><td>&lt;td&gt;</td><td>Обычная ячейка</td><td>colspan, rowspan</td></tr>
+                <tr align="center"><td>&lt;caption&gt;</td><td>Заголовок таблицы</td><td></td></tr>
+                <tr align="center"><td>&lt;thead&gt;</td><td>Блок заголовков</td><td></td></tr>
+                <tr align="center"><td>&lt;tbody&gt;</td><td>Основное тело таблицы</td><td></td></tr>
+                <tr align="center"><td>&lt;tfoot&gt;</td><td>Блок итогов</td><td></td></tr>
+            </table>
+        <div class="tag-attrs">Атрибуты:</div>
+            <table border="1" width="50%" align="center" bgcolor="#f0f0f0">
+                <caption>Таблица атрибутов:</caption>
+                <tr><th>Атрибут</th><th>Пример</th><th>Описание</th><th>Современная замена (CSS)</th></tr>
+                <tr><th colspan="4" bgcolor="yellow">Атрибуты для &lt;table&gt;</th></tr>
+                <tr align="center"><td>border</td><td>border="1"</td><td>Толщина границы в пикселях</td><td>border: 1px solid #000;</td></tr>
+                <tr align="center"><td>width</td><td>width="100%"</td><td>Ширина таблицы</td><td>width: 100%;</td></tr>
+                <tr align="center"><td>cellspacing</td><td>cellspacing="5"</td><td>Расстояние между ячейками</td><td>border-spacing: 5px;</td></tr>
+                <tr align="center"><td>cellpadding</td><td>cellpadding="10"</td><td>Отступ внутри ячеек</td><td>padding: 10px;</td></tr>
+                <tr align="center"><td>align</td><td>align="center"</td><td>Выравнивание таблицы</td><td>margin: 0 auto;</td></tr>
+                <tr align="center"><td>bgcolor</td><td>bgcolor="#f0f0f0"</td><td>Цвет фона</td><td>background-color: #f0f0f0;</td></tr>
+                <tr align="center"><td>background</td><td>background="URL"</td><td>Фоновое изображение для таблицы</td><td></td></tr>
+                <tr><th colspan="4" bgcolor="yellow">Атрибуты для строк &lt;tr&gt;, и ячеек (&lt;td&gt;, &lt;th&gt;)</th></tr>
+                <tr align="center"><td>colspan</td><td>colspan="2"</td><td>Объединение ячеек по горизонтали</td><td></td></tr>
+                <tr align="center"><td>rowspan</td><td>rowspan="3"</td><td>Объединение ячеек по вертикали</td><td></td></tr>
+                <tr align="center"><td>align</td><td>align="right"</td><td>Горизонтальное выравнивание</td><td>text-align: right;</td></tr>
+                <tr align="center"><td>valign</td><td>valign="top, midle, bottom"</td><td>Вертикальное выравнивание</td><td>vertical-align: top;</td></tr>
+                <tr align="center"><td>bgcolor</td><td>bgcolor="yellow"</td><td>Цвет фона</td><td>background-color: yellow;</td></tr>
+                <tr align="center"><td>width/height</td><td>width="200"</td><td>Размеры ячейки</td><td>	width: 200px;</td></tr>
+                <tr><th colspan="4" bgcolor="yellow">Семантические атрибуты</th></tr>
+                <tr align="center"><td>scope</td><td>scope="col"</td><td>Для &lt;th&gt; указывает направление заголовка (col, row, colgroup, rowgroup)</td><td></td></tr>
+                <tr align="center"><td>headers</td><td>headers="col1"</td><td>Связывает ячейку с заголовком по id</td><td></td></tr>
+            </table>
+    <pre><code>
+    &lt;table border="1" width="50%" align="center" bgcolor="#f0f0f0"&gt;
+        &lt;caption&gt;Таблица атрибутов:&lt;/caption&gt;
+        &lt;tr&gt;&lt;th colspan="4" bgcolor="yellow"&gt;Заголовок&lt;/th&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;Данные&lt;/td&gt;&lt;/tr&gt;
+    &lt;/table&gt;
+    </code></pre>
     </div>
 
-    <div class="tag-block">
+    <!--iframe-->
+    <div class="tag-block" id="iframe">
+        <div class="tag-name">&lt;iframe&gt;</div>
+        <div class="tag-desc">Описание: Позволяет встраивать на страницу другие HTML-документы, видео, карты или веб-приложения.</div>
+        <div class="tag-attrs">Атрибуты:</div>
+            <table border="1" width="50%" align="center" bgcolor="#f0f0f0">
+                <tr align="center"><th>Атрибут</th><th>Пример</th><th>Описание</th></tr>
+                <tr align="center"><td>src</td><td>src="https://example.com"</td><td>URL встраиваемого содержимого (обязательный)</td></tr>
+                <tr align="center"><td>width/height</td><td>width="600" height="400"</td><td>Размеры фрейма (в пикселях или %)</td></tr>
+                <tr align="center"><td>frameborder</td><td>frameborder="0"</td><td>Устаревший. Границы (0 — нет, 1 — есть). Лучше использовать CSS border: none</td></tr>
+                <tr align="center"><td>allowfullscreen</td><td>allowfullscreen</td><td>Разрешает полноэкранный режим (для видео)</td></tr>
+                <tr align="center"><td>sandbox</td><td>sandbox="allow-scripts"</td><td>Ограничения безопасности (см. ниже)</td></tr>
+                <tr align="center"><td>loading</td><td>loading="lazy"</td><td>Ленивая загрузка (lazy/eager)</td></tr>
+                <tr align="center"><td>name</td><td>name="myFrame"</td><td>Имя фрейма для target в ссылках</td></tr>
+            </table>
+    <pre><code>
+        &lt;iframe src="page.html" width="300" height="200"&gt;&lt;/iframe&gt;
+    </code></pre>
+    </div>
+
+    <!--form-->
+    <div class="tag-block" id="form">
         <div class="tag-name">&lt;form&gt;</div>
-        <div class="tag-desc">Описание: Форма для ввода данных</div>
-        <div class="tag-attrs">Атрибуты: action, method, enctype</div>
-        <pre><code>&lt;form action="/submit" method="post"&gt;
-  &lt;input type="text" name="имя"&gt;
-&lt;/form&gt;</code></pre>
+        <div class="tag-desc">Описание: Используется для сбора и отправки пользовательских данных на сервер.</div>
+        <div class="tag-attrs">Атрибуты:</div>
+            <ul>
+                <li>action - URL для отправки данных (обязательный). Пример: action="/submit"</li>
+                <li>method - HTTP-метод (GET или POST). Пример: method="POST"</li>
+                <li>target - Где открыть ответ (_self, _blank, имя iframe). Пример: target="_blank"</li>
+                <li>enctype	- Кодировка данных (для файлов). Пример: enctype="multipart/form-data"</li>
+                <li>autocomplete - Включить/выключить автозаполнение. Пример: autocomplete="off"</li>
+                <li>novalidate - Отключить валидацию браузера. Пример: novalidate</li>
+            </ul>
+        
+        <div>
+            <form action="/submit" method="POST">
+              <!-- Текстовое поле -->
+            <label for="name">Имя:</label>
+            <input type="text" id="name" name="user_name" placeholder="Иван Иванов" required>
+            <!-- Пароль -->
+            <label for="pwd">Пароль:</label>
+            <input type="password" id="pwd" name="user_pass" minlength="8" required>
+            <!-- Чекбокс -->
+            <label>
+                <input type="checkbox" name="newsletter" checked>
+                Получать новости
+            </label>
+            <!-- Кнопка отправки -->
+            <input type="submit" value="Зарегистрироваться">
+            </form>
+        </div>
+
+    <pre><code>
+    &lt;form action="/submit" method="POST"&gt;
+       
+        &lt;!-- Текстовое поле --&gt;
+        &lt;label for="name"&gt;Имя:&lt;/label&gt;
+        &lt;input type="text" id="name" name="user_name" placeholder="Иван Иванов" required&gt;
+        
+        &lt;!-- Пароль --&gt;
+        &lt;label for="pwd"&gt;Пароль:&lt;/label&gt;
+        &lt;input type="password" id="pwd" name="user_pass" minlength="8" required&gt;
+        
+        &lt;!-- Чекбокс --&gt;
+        &lt;label&gt;
+            &lt;input type="checkbox" name="newsletter" checked&gt;
+            Получать новости
+        &lt;/label&gt;
+       
+        &lt;!-- Кнопка отправки --&gt;
+        &lt;input type="submit" value="Зарегистрироваться"&gt;
+    &lt;/form&gt;
+    </code></pre>
     </div>
 
-    <div class="tag-block">
+    <!--input-->
+    <div class="tag-block" id="input">
         <div class="tag-name">&lt;input&gt;</div>
-        <div class="tag-desc">Описание: Поле ввода</div>
-        <div class="tag-attrs">Атрибуты: type, name, value, placeholder, required</div>
-        <pre><code>&lt;input type="text" placeholder="Введите имя"&gt;</code></pre>
+        <div class="tag-desc">Описание: Создаёт поля для ввода данных</div>
+        <div class="tag-attrs">Атрибуты:</div>
+            <ul>
+                <li>type – определяет тип поля</li>
+                    <table border="1" align="center">
+                    <thead>
+                        <caption><b>Варианты type="..."</b></caption>
+                        <tr><th>Тип</th><th>Пример кода</th><th>Описание</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>text</td><td><code>&lt;input type="text" name="username"&gt;</code></td><td>Однострочное текстовое поле</td></tr>
+                        <tr><td>password</td><td><code>&lt;input type="password" name="pwd"&gt;</code></td><td>Поле для ввода пароля (символы скрыты)</td></tr>
+                        <tr><td>email</td><td><code>&lt;input type="email" name="email"&gt;</code></td><td>Поле для email с базовой валидацией</td></tr>
+                        <tr><td>number</td><td><code>&lt;input type="number" name="age"&gt;</code></td><td>Поле для ввода чисел</td></tr>
+                        <tr><td>checkbox</td><td><code>&lt;input type="checkbox" name="agree" value="yes"&gt;</code></td><td>Галочка для выбора нескольких вариантов</td></tr>
+                        <tr><td>radio</td><td><code>&lt;input type="radio" name="gender" value="male"&gt;</code></td><td>Кружок для выбора одного варианта из группы</td></tr>
+                        <tr><td>submit</td><td><code>&lt;input type="submit" value="Отправить"&gt;</code></td><td>Кнопка для отправки формы</td></tr>
+                        <tr><td>reset</td><td><code>&lt;input type="reset" value="Очистить"&gt;</code></td><td>Кнопка для сброса данных формы</td></tr>
+                        <tr><td>button</td><td><code>&lt;input type="button" value="Нажми"&gt;</code></td><td>Обычная кнопка для JavaScript</td></tr>
+                        <tr><td>file</td><td><code>&lt;input type="file" name="photo"&gt;</code></td><td>Поле для загрузки файлов</td></tr>
+                        <tr><td>date</td><td><code>&lt;input type="date" name="birthday"&gt;</code></td><td>Поле для выбора даты</td></tr>
+                        <tr><td>color</td><td><code>&lt;input type="color" name="favcolor"&gt;</code></td><td>Поле для выбора цвета</td></tr>
+                    </tbody>
+                    </table>
+                <li>name – имя поля (обязательно для отправки данных)</li>
+                <li>value – значение по умолчанию</li>
+                <li>placeholder – подсказка внутри поля</li>
+            </ul>
+    <input type="text" name="username" placeholder="Введите имя">
+    <pre><code>
+    &lt;input type="text" name="username" placeholder="Введите имя"&gt;
+    </code></pre>
     </div>
 
-    <div class="tag-block">
+    <!--label-->
+    <div class="tag-block" id="label">
         <div class="tag-name">&lt;label&gt;</div>
-        <div class="tag-desc">Описание: Подпись к элементу формы</div>
+        <div class="tag-desc">Описание: Подпись для элемента формы.</div>
         <div class="tag-attrs">Атрибуты: for</div>
-        <pre><code>&lt;label for="name"&gt;Имя:&lt;/label&gt;</code></pre>
+        Как связать подпись с полем:
+        <ul>
+            <li>Способ 1 - Через for и id. for в label должен совпадать с id в input:</li>
+                <label for="email-input">Ваш email:</label>
+                <input type="email" id="email-input" name="email">
+                <pre><code>
+                &lt;label for="email-input"&gt;Ваш email:&lt;/label&gt;
+                &lt;input type="email" id="email-input" name="email"&gt;
+                </code></pre>
+            <li>Способ 2: Оборачивание поля:</li>
+                <label>
+                <input type="checkbox" name="agree"> 
+                Я согласен с условиями
+                </label>
+                <pre><code>
+                &lt;label&gt;
+                &lt;input type="checkbox" name="agree"&gt;
+                Я согласен с условиями
+                &lt;/label&gt;
+                </code></pre>
+        </ul>
+        </div>
+
+    <!--select-->
+    <div class="tag-block" id="select">
+        <div class="tag-name">&lt;select&gt; / &lt;option&gt;</div>
+        <div class="tag-desc">Описание: Создает список вариантов для выбора (один или несколько).</div>
+        <div class="tag-attrs">Атрибуты:</div>
+        <table border="1" width="50%" align="center" bgcolor="#f0f0f0">
+            <tr><th colspan="3" bgcolor="yellow">Атрибуты select:</th></tr>
+            <tr><th>Атрибут</th><th>Описание</th><th>Пример</th></tr>
+            <tr align="center"><td>name</td><td>Имя для отправки на сервер</td><td>name="country"</td></tr>
+            <tr align="center"><td>multiple</td><td>Множественный выбор</td><td>multiple</td></tr>
+            <tr align="center"><td>size</td><td>Количество видимых строк</td><td>size="3"</td></tr>
+            <tr align="center"><td>disabled</td><td>Блокирует выбор</td><td>disabled</td></tr>
+            <tr align="center"><td>required</td><td>Обязателен для заполнения</td><td>required</td></tr>
+            <tr><th colspan="3" bgcolor="yellow">Атрибуты option:</th></tr>
+            <tr align="center"><td>value</td><td>Значение для отправки на сервер</td><td>value="ru"</td></tr>
+            <tr align="center"><td>selected</td><td>Выбран по умолчанию</td><td>selected</td></tr>
+            <tr align="center"><td>disabled</td><td>Недоступен для выбора</td><td>disabled</td></tr>
+        </table>
+    
+    <select name="страна">
+        <option value="ru">Россия</option>
+        <option value="us">США</option>
+        <option value="de">Германия</option>
+    </select>
+
+    <pre><code>
+    &lt;select name="страна"&gt;
+        &lt;option value="ru"&gt;Россия&lt;/option&gt;
+        &lt;option value="us"&gt;США&lt;/option&gt;
+        &lt;option value="de"&gt;Германия&lt;/option&gt;
+    &lt;/select&gt;
+    </code></pre>
     </div>
 
-    <div class="tag-block">
+    <!--textarea-->
+    <div class="tag-block" id="textarea">
         <div class="tag-name">&lt;textarea&gt;</div>
         <div class="tag-desc">Описание: Многострочное поле ввода</div>
-        <div class="tag-attrs">Атрибуты: rows, cols, name, placeholder</div>
-        <pre><code>&lt;textarea rows="4" cols="50"&gt;&lt;/textarea&gt;</code></pre>
-    </div>
+        <div class="tag-attrs">Атрибуты:</div>
+            <table border="1" width="50%" align="center" bgcolor="#f0f0f0">
+                <thead>
+                    <tr><th>Атрибут</th><th>Пример</th><th>Значение по умолчанию</th><th>Описание</th></tr>
+                </thead>
+                <tbody>
+                    <tr align="center"><td><code>name</code></td><td>name="message"</td><td>-</td><td>Имя поля для отправки данных на сервер</td></tr>
+                    <tr align="center"><td><code>rows</code></td><td>rows="5"</td><td>2</td><td>Высота в строках текста</td></tr>
+                    <tr align="center"><td><code>cols</code></td><td>cols="30"</td><td>20</td><td>Ширина в символах (устаревший)</td></tr>
+                    <tr align="center"><td><code>placeholder</code></td><td>placeholder="..."	</td><td>-</td><td>Подсказка внутри поля (исчезает при вводе)</td></tr>
+                    <tr align="center"><td><code>disabled</code></td><td>disabled</td><td>-</td><td>Блокирует редактирование</td></tr>
+                    <tr align="center"><td><code>readonly</code></td><td>readonly</td><td>-</td><td>Разрешает только чтение (текст нельзя изменить)</td></tr>
+                    <tr align="center"><td><code>maxlength</code></td><td>maxlength="200"</td><td>-</td><td>Максимальное количество символов</td></tr>
+                    <tr align="center"><td><code>minlength</code></td><td>minlength="20"</td><td>-</td><td>Минимальное количество символов</td></tr>
+                    <tr align="center"><td><code>required</code></td><td>required</td><td>-</td><td>Обязательное поле для заполнения</td></tr>
+                    <tr align="center"><td><code>autofocus</code></td><td>autofocus</td><td>-</td><td>Автоматический фокус на поле при загрузке страницы</td></tr>
+                    <tr align="center"><td><code>form</code></td><td>form="myForm"</td><td>-</td><td>Связывает textarea с формой по id</td></tr>
+                    <tr align="center"><td><code>wrap</code></td><td>wrap="hard":</td><td>soft</td><td>Перенос текста (hard/soft)</td></tr>
+                </tbody>
+                </table>
+    <form id="feedback">
+        <label>Сообщение:</label>
+        <textarea 
+        name="msg" 
+        rows="5" 
+        form="feedback" 
+        autofocus 
+        wrap="hard" 
+        cols="40"
+        placeholder="Введите текст..."
+        ></textarea>
+        <button type="submit">Отправить</button>
+    </form>
 
-    <div class="tag-block">
-        <div class="tag-name">&lt;select&gt; / &lt;option&gt;</div>
-        <div class="tag-desc">Описание: Выпадающий список и его пункты</div>
-        <div class="tag-attrs">Атрибуты: name, value, selected</div>
-        <pre><code>&lt;select&gt;
-  &lt;option value="1"&gt;Один&lt;/option&gt;
-&lt;/select&gt;</code></pre>
+    <pre><code>
+    &lt;form id="feedback"&gt;
+        &lt;label&gt;Сообщение:&lt;/label&gt;
+        &lt;textarea 
+        name="msg" 
+        rows="5" 
+        form="feedback" 
+        autofocus 
+        wrap="hard" 
+        cols="40"
+        placeholder="Введите текст..."
+        >&lt;/textarea&gt;
+        &lt;button type="submit"&gt;Отправить&lt;/button&gt;
+    &lt;/form&gt;
+    </code></pre>
     </div>
 
     <div class="tag-block">
@@ -398,13 +707,6 @@
         <div class="tag-desc">Описание: Метаинформация (кодировка, SEO и др.)</div>
         <div class="tag-attrs">Атрибуты: charset, name, content</div>
         <pre><code>&lt;meta charset="UTF-8"&gt;</code></pre>
-    </div>
-
-    <div class="tag-block">
-        <div class="tag-name">&lt;iframe&gt;</div>
-        <div class="tag-desc">Описание: Встраивание других веб-страниц</div>
-        <div class="tag-attrs">Атрибуты: src, width, height, frameborder</div>
-        <pre><code>&lt;iframe src="page.html" width="300" height="200"&gt;&lt;/iframe&gt;</code></pre>
     </div>
 
     <div class="tag-block">
