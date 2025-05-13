@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Учебная форма регистрации</title>
+    <link type="text/css" href="style.css" rel="stylesheet">
+</head>
+<body>
+    <div id="reg_form">
+    <h1>Форма ввода данных.</h1>
+    <form action="/register" method="POST" enctype="multipart/form-data">
+        <!-- Текстовые поля -->
+        <fieldset class="reg_r">
+            <legend>Основная информация</legend>
+            <div class="gtr">
+            <label class="reg_title" for="username">Логин:</label>
+            <input type="text" id="username" name="username" required minlength="4" maxlength="20" placeholder="Придумайте логин">
+            </div>
+            <div class="gtr">
+            <label class="reg_title" for="password">Пароль:</label>
+            <input type="password" id="password" name="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Придумайте пароль">
+            </div>
+            <div class="gtr">
+            <label class="reg_title" for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            </div>
+        </fieldset>
+
+        <!-- Радиокнопки -->
+        <fieldset>
+            <legend>Пол</legend>
+            <input type="radio" id="male" name="gender" value="male" checked>
+            <label for="male">Мужской</label>
+            
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Женский</label>
+            
+            <input type="radio" id="other" name="gender" value="other">
+            <label for="other">Другой</label>
+        </fieldset>
+
+        <!-- Чекбоксы -->
+        <fieldset style = "margin-bottom: 5px">
+
+            <legend>Интересы</legend>
+            <input type="checkbox" id="sport" name="interests" value="sport">
+            <label for="sport">Спорт</label>
+            
+            <input type="checkbox" id="music" name="interests" value="music" checked>
+            <label for="music">Музыка</label>
+            
+            <input type="checkbox" id="books" name="interests" value="books">
+            <label for="books">Книги</label>
+        </fieldset>
+        <br>
+
+        <div id="reg_ff">
+            <!-- Выпадающие списки -->
+            <label for="country">Страна:</label>
+            <select id="country" name="country" style = "margin-bottom: 5px">
+                <option value="">-- Выберите страну --</option>
+                <option value="ru">Россия</option>
+                <option value="us">США</option>
+                <option value="de">Германия</option>
+            </select>
+            <br>
+            <!-- Многострочный текст -->
+            <label for="bio">О себе:</label>
+            <textarea id="bio" name="bio" rows="4" cols="51" placeholder="Расскажите о себе..."></textarea>
+            <br>
+            <!-- Файлы -->
+            <label for="avatar">Аватар:</label>
+            <input type="file" id="avatar" name="avatar" accept="image/*">
+            <br>
+            <!-- Числовые поля -->
+            <label for="age">Возраст:</label>
+            <input type="number" id="age" name="age" min="18" max="99">
+            <br>
+            <!-- Дата и время -->
+            <label for="birthday">Дата рождения:</label>
+            <input type="date" id="birthday" name="birthday">
+            <br>
+            <label for="alarm">Уведомления в:</label>
+            <input type="time" id="alarm" name="alarm" value="09:00">
+            <br>
+            <!-- Цвет -->
+            <label for="favcolor">Любимый цвет:</label>
+            <input type="color" id="favcolor" name="favcolor" value="#ff0000">
+            <br>
+            <!-- Диапазон -->
+            <label for="volume">Громкость уведомлений:</label>
+            <input type="range" id="volume" name="volume" min="0" max="100" step="10" value="50">
+            <br>
+            <!-- Скрытое поле -->
+            <input type="hidden" name="secret_token" value="abc123">
+            <br>
+            <div id="hhh">
+            <!--Пользовательское соглашение-->
+            <input type="checkbox">
+            <label>Пользовательское соглашение</label>
+            </div>
+            <div class="jkl">
+            <!-- Кнопки -->
+            <input type="submit" value="Зарегистрироваться">
+            <input type="reset" value="Очистить форму">
+            <button type="button">Просто кнопка</button>
+            </div>
+        </div>
+    </form>
+    </div>
+</body>
+</html>

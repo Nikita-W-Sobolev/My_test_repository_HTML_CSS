@@ -69,6 +69,9 @@
         <li><a href="#label">&lt;label&gt;</a> - подпись для элемента формы.</li>
         <li><a href="#select">&lt;select&gt;</a> - выпадающий список</li>
         <li><a href="#textarea">&lt;textarea&gt;</a> - многострочное поле ввода</li>
+        <li><a href="#button">&lt;button&gt;</a> - создает интерактивную кнопку</li>
+        <li><a href="#link">&lt;link&gt;</a> - подключение внешних ресурсов</li>
+        <li><a href="#style">&lt;style&gt;</a> - подключение внешних ресурсов</li>
     </ul>
 
     <p>Глобальные атрибуты (работают для абсолютно всех тегов):</p>
@@ -671,22 +674,123 @@
     </code></pre>
     </div>
 
-    <div class="tag-block">
+    <!--button-->
+    <div class="tag-block" id="button">
         <div class="tag-name">&lt;button&gt;</div>
-        <div class="tag-desc">Описание: Кнопка</div>
-        <div class="tag-attrs">Атрибуты: type, disabled</div>
-        <pre><code>&lt;button type="submit"&gt;Отправить&lt;/button&gt;</code></pre>
-    </div>
-    <div class="tag-block">
-        <div class="tag-name">&lt;script&gt;</div>
-        <div class="tag-desc">Описание: Встраивание JavaScript-кода</div>
-        <div class="tag-attrs">Атрибуты: src, type</div>
-        <pre><code>&lt;script&gt;
-  alert('Привет');
-&lt;/script&gt;</code></pre>
+        <div class="tag-desc">Описание: Создает интерактивную кнопку для действий (отправка формы, запуск скриптов и др.)</div>
+        <div class="tag-attrs">Атрибуты:</div>
+            <table border="1" width="50%" align="center" bgcolor="#f0f0f0">
+                <tr bgcolor="yellow"><th>Атрибут</th><th>Описание</th><th>Значение</th></tr>
+                <tr align="center"><td>type</td><td>Тип кнопки (обязательный). По умолчанию submit в формах.</td><td>submit(отправка формы), reset(сброс полей формы), button(обычная кнопка)</td></tr>
+                <tr align="center"><td>name</td><td>Имя для отправки данных (используется с value)</td><td>Любая строка</td></tr>
+                <tr align="center"><td>value</td><td>Данные, которые отправятся на сервер</td><td>Любая строка</td></tr>
+                <tr align="center"><td>disabled</td><td>Блокирует кнопку</td><td>disabled</td></tr>
+                <tr align="center"><td>autofocus</td><td>Устанавливает фокус на кнопке при загрузке</td><td>autofocus</td></tr>
+                <tr align="center"><td>form</td><td>Связывает кнопку с формой вне тега <form></td><td>ID формы</td></tr>
+            </table>
+    <button type="button">Нажми меня</button>
+    <pre><code>
+    &lt;button type="button"&gt;Нажми меня&lt;/button&gt;
+    </code></pre>
     </div>
 
-    <div class="tag-block">
+    <!--link-->
+    <div class="tag-block" id="link">
+        <div class="tag-name">&lt;link&gt;</div>
+        <div class="tag-desc">Описание: Подключает к HTML-документу внешние ресурсы: CSS-стили, иконки, шрифты и др. Работает только в &lt;head&gt;.</div>
+        <div class="tag-attrs">Атрибуты:</div>
+
+            <table border="1" cellpadding="6" cellspacing="0">
+            <thead>
+                <tr><th>Атрибут</th><th>Обязательный</th><th>Значения</th><th>Описание</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td>rel</td>
+                <td>Да</td>
+                <td>stylesheet, icon, preload</td>
+                <td>Тип связи с ресурсом (см. ниже типы rel)</td>
+                </tr>
+                <tr>
+                <td>href</td>
+                <td>Да</td>
+                <td>URL (относительный/абсолютный)</td>
+                <td>Путь к файлу</td>
+                </tr>
+                <tr>
+                <td>type</td>
+                <td>Нет</td>
+                <td>text/css, image/x-icon</td>
+                <td>MIME-тип ресурса (обычно определяется автоматически)</td>
+                </tr>
+                <tr>
+                <td>media</td>
+                <td>Нет</td>
+                <td>screen, print, (max-width: 600px)</td>
+                <td>Условия применения ресурса</td>
+                </tr>
+                <tr>
+                <td>crossorigin</td>
+                <td>Нет</td>
+                <td>anonymous, use-credentials</td>
+                <td>Настройки CORS для внешних ресурсов</td>
+                </tr>
+                <tr>
+                <td>integrity</td>
+                <td>Нет</td>
+                <td>Хэш (SHA-384 и др.)</td>
+                <td>Проверка целостности загружаемого файла</td>
+                </tr>
+            </tbody>
+            </table>
+
+            <br>
+
+            <table border="1" cellpadding="6" cellspacing="0">
+            <thead>
+                <tr>
+                <th>Значение rel</th>
+                <th>Пример использования</th>
+                <th>Описание</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td>stylesheet</td>
+                <td>Подключение CSS</td>
+                <td>Основной способ добавления стилей</td>
+                </tr>
+                <tr>
+                <td>icon / shortcut icon</td>
+                <td>Фавиконка</td>
+                <td>Иконка сайта во вкладке браузера</td>
+                </tr>
+                <tr>
+                <td>preload</td>
+                <td>Предзагрузка шрифтов/скриптов</td>
+                <td>Ускорение загрузки критических ресурсов</td>
+                </tr>
+                <tr>
+                <td>preconnect</td>
+                <td>Предварительное подключение к CDN</td>
+                <td>Уменьшает задержку соединения с внешними ресурсами</td>
+                </tr>
+                <tr>
+                <td>alternate</td>
+                <td>Альтернативная версия (RSS и др.)</td>
+                <td>Ссылка на другую версию контента или формат</td>
+                </tr>
+            </tbody>
+            </table>
+
+
+    <pre><code>
+    &lt;link rel="stylesheet" href="style.css"&gt;
+    </code></pre>
+    </div>
+
+    <!--style-->
+    <div class="tag-block" id="style">
         <div class="tag-name">&lt;style&gt;</div>
         <div class="tag-desc">Описание: Встроенные CSS стили</div>
         <div class="tag-attrs">Атрибуты: type (редко используется)</div>
@@ -695,11 +799,14 @@
 &lt;/style&gt;</code></pre>
     </div>
 
+
     <div class="tag-block">
-        <div class="tag-name">&lt;link&gt;</div>
-        <div class="tag-desc">Описание: Подключение внешних ресурсов (например, CSS)</div>
-        <div class="tag-attrs">Атрибуты: rel, href, type</div>
-        <pre><code>&lt;link rel="stylesheet" href="style.css"&gt;</code></pre>
+        <div class="tag-name">&lt;script&gt;</div>
+        <div class="tag-desc">Описание: Встраивание JavaScript-кода</div>
+        <div class="tag-attrs">Атрибуты: src, type</div>
+        <pre><code>&lt;script&gt;
+  alert('Привет');
+&lt;/script&gt;</code></pre>
     </div>
 
     <div class="tag-block">

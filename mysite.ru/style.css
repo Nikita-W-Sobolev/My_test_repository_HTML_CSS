@@ -1,0 +1,88 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Tahoma;
+    color: #444;
+}
+
+h1 {
+    font-size: 20px;
+    margin: 0 0 20px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+#reg_form {
+    width: 400px;
+    margin: 20px auto 0 auto;
+    padding: 10px;
+    background: #fff;
+    box-shadow: 5px 5px 10px #aaa;
+    border-radius: 5px
+}
+
+.reg_r {
+  border: 2px solid #3498db;  /* Синяя рамка */
+  border-radius: 10px;          /* Закругленные углы */
+  padding: 20px;                /* Внутренний отступ */
+  margin-bottom: 10px;          /* Внешний отступ снизу */
+  background-color: #f8f9fa;  /* Светло-серый фон */
+}
+
+
+.reg_r legend {
+  background: white; /* Фон, чтобы перекрыть рамку */
+  padding: 0 5px;
+}
+
+
+#reg_ff label, #reg_ff textarea, #reg_ff input {
+    margin-bottom: 5px;  /* Отступ снизу */
+}
+
+.reg_title {
+    display: inline-block;
+    min-width: 100px
+}
+
+.gtr {
+    margin-bottom: 5px;
+}
+
+.gtr input {
+    width: 230px;
+    border: None;
+    border-bottom: 1px solid #aaa;
+    font-size: 16px;
+    outline: none;
+}
+
+.gtr input:focus {
+    border-bottom: 1px solid #FFDB4D;
+}
+
+#country {
+    width: 230px;
+    font-size: 14px;
+    background: #FFF9B5;
+}
+
+textarea {
+    font-size: 16px;
+    color: #096407;
+    max-width: 400px;
+    max-height: 100px;
+}
+
+#hhh {
+    margin-bottom: 5px;
+}
+
+.jkl input {
+    background: #FFDB4D;
+    font-size: 16px;
+    color: #333;
+    padding: 5px;
+    border: 1px solid #FFCF11;
+    border-radius: 3px;
+}
